@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+<!-- link Stylesheet for table -->
+{% block head %}<link href="../static/css/table.css" rel="stylesheet">{% endblock %}
+
+{% block title %}Table{% endblock %}
+
+{% block class %}                       
+<!-- Different intensity has different background images -->
+    {% if intensity == "casual" %}
+        <div class="casualBackground">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% elif intensity == "moderate" %}
+        <div class="moderateBackground">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+    {% else %}                                                              
+        <div class="intenseBackground">
+    {% endif %}
+{% endblock %}
+
+{%block main %}
+        <h1>{{greeting}} {{name}}.</h1>
+        </div>
+{% endblock %}
+
+
+
+
+
+<!-- different loading screen tips, pseudo-randomly generated -->
+{% block animation %}
+<!-- Remember to add if for first time -->
+
+        <div class="loader-wrapper2">
+            <span class="loader"><span class="loader-inner"></span></span>
+            {% if randomTip == 0 %}
+                <span class="loaderText">We encourage you to study flash cards right before you sleep, your brain retains information better that way.</span>
+            {% elif randomTip == 1 %}
+                <span class="loaderText">We encourage you to study flash cards right before you sleep, your brain retains information better that way.</span>
+            {% elif randomTip == 2 %}
+                <span class="loaderText">A good way to maintain motivation when learning a language, is to watch fun content in said language.</span>
+            {% elif randomTip == 3 %} 
+                <span class="loaderText">“A different language is a different vision of life.” – Federico Fellini.</span> 
+            {% elif randomTip == 4 %} 
+                <span class="loaderText">When reading in your target language, try following along with an audio book version at the same time.</span>
+            {% elif randomTip == 5 %}
+                <span class="loaderText">Did you know, the name of this website - ÈDÈ is the Yoruba word for language.</span>      
+            {% elif randomTip == 6 %}
+                <span class="loaderText">In the end, language learning is subjective, it is all up to you. It's all in your hands</span> 
+            {% elif randomTip == 7 %} 
+                <span class="loaderText">When watching content in your target language, it is a good idea to use subtitles, <span style="color: #FFAC06">BUT</span>, only in the language you're trying to learn.</span> 
+            {% elif randomTip == 8 %}
+                <span class="loaderText">Speaking to people in target language. Good. Speaking too much and entrenching bad habits? Bad</span>
+            {% elif randomTip == 9 %}
+                <span class="loaderText">Language learning is all about consistency. You can do a lot, but if it isn't everyday,  it's all for naught.</span>
+            {% elif randomTip == 10 %}
+                <span class="loaderText">Give up</span>
+                <span id = "pause" class="loaderText">On giving up</span>
+            {% endif %}
+        </div>
+
+
+        <script>
+        document.querySelector('#pause').onkeyup = function(){
+            
+        }    
+
+        </script>
+{% endblock %}

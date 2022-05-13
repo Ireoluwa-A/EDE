@@ -1,0 +1,337 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* BACKGROUND STYLING */
+.background  /* Format most, if not all backgrounds will follow */
+{
+    background: no-repeat fixed center;
+    background-size: cover;
+    height: 100vh;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden; 
+    margin: 0px;
+    padding: 0px;
+}
+/* Specific images for different pages: */
+.mainBackground
+{
+    height: 6000px;
+    background-color: #353535;
+    /* background-image: url("../img/backgroundImage.jpg"); */
+}
+.signUpBackground
+{
+    background-image: url("../img/signUpBackground.jpg");
+}
+.loginBackground
+{
+    background-image: url("../img/loginBackground.jpg");
+}
+.infoBackground
+{
+    background-image: url("../img/infoBackground.jpg")
+}
+.casualSchedule
+{
+    background-image: url("../img/casualBackground.jpg")
+}
+.moderateSchedule
+{
+    background-image: url("../img/moderateBackground.jpg")
+}
+.intenseSchedule
+{
+    background-image: url("../img/intenseBackground.jpg")
+}
+
+
+
+
+
+
+/* NAVBAR/LOGO STYLING */
+.navbar
+{
+    height: 80px;
+    width: 100%;
+    /* background: #252525; */
+    background: rgba(0,0,0,0.4);
+    /* border-bottom: 2px solid white; */
+}
+.navbar ul
+{
+    float: right;
+    width: 50%;
+    margin-right: 20px;
+    justify-content: space-around;
+    list-style: none;
+    /* background-color: red; */
+}
+.navbar ul li
+{
+    display: inline-block;
+    margin: 0 20px;  
+    line-height: 65px; 
+}
+.navbar ul li a 
+{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    border-radius: 3px
+}
+
+/* Animation when you hover over links and logo */
+.navbar li::after
+{
+    content: '';
+    display: block;
+    position: relative;
+    top: -15px;
+    /* line-height: 65px;  */
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s
+}
+.navbar li:hover::after
+{
+   width: 100%;
+   transition: width .3s;
+}
+
+
+.logo
+{
+    position: absolute;
+    lv5%;
+    top: 5%;
+    width: 150px;
+    /* margin-left: 50px; */
+    height: auto;
+    /* float: left; */
+    transition: 0.5s
+    /* padding: 0 10px; */
+}
+.logo:hover
+{
+    transform: scale(1.25);
+    /* background: rgba(0,0,0,.0.1); */
+    /* mix-blend-mode: multiply; */
+}
+
+/* Button on the side */
+.checkbtn
+{
+    margin-left: 80%;
+    color: white;
+    height: 60px;
+    line-height: 80px;
+    /* margin-right: 40px; */
+    cursor: pointer;
+    display: none; 
+    align-items: center;
+}
+#check
+{
+    display: none;
+}
+/* Makes burger turn to cross when clicked */
+.line
+{
+    position: absolute;
+    height: 5px;
+    width: 40px;
+    color: white;
+    /* background-color: white; */
+    border-radius: 10px;
+    transition: all cubic-bezier(0.26,0.1,0.27,1.55) 0.25s;
+}
+.top
+{
+    background-color: white;
+    top: 35%;
+}
+.middle
+{
+    background-color: white;
+    top: 55%;
+}
+.bottom
+{
+    background-color: white;
+    top: 75%
+}
+.checkbtn.close .top
+{
+    transform: rotate(45deg);
+    top: 55%;
+}
+.checkbtn.close .middle, .checkbtn.close .bottom
+{
+    transform: rotate(-45deg);
+    top: 55%;
+}
+
+/* Different styling on phones and smaller screens */
+@media (max-width: 858px)
+{
+    .checkbtn
+    {
+        display: block;
+    }
+    .logo{
+        position: absolute;
+        left: 2%;
+    }
+    ul
+    {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background:#353535;
+        border-left: 2px solid white;
+        top: 80px;
+        right: -100%;
+        text-align: center;
+        transition: all .5s;
+        z-index:2;
+    }
+    .navbar ul li {
+        display: block;
+        margin: 50px;
+        line-height: 30px;
+    }
+    .navbar ul li a .active
+    {
+        background-color: rgba(255,172,6, 0.3);
+    }
+    .navbar ul li a
+    {
+        font-size: 25px;
+    }
+    a:hover, a.active
+    {
+        background: none;
+        color: grey;
+    }
+    #check:checked ~ ul
+    {
+        right: 0%;
+    }
+}
+
+
+
+
+
+
+
+
+/* MAIN PAGE BOXES STYLING */
+/* Make responsive.. and work on mobile. */
+.row1
+{
+    /* position: relative; */
+    background-image: url("../img/backgroundImage.jpg");
+    height: 600px;
+}
+.row2
+{
+    height: 600px;
+    width: auto;  
+}
+.boxes
+{
+    display: inline-block;
+    position: relative;
+    width: 600px;
+    padding: 10px 10px;
+    background: rgba(0,0,0,.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+.box1
+{
+    margin-top: 40px;
+}
+.box2
+{
+
+}
+.box3
+{
+    margin-top: 400px
+}
+
+
+/* Headers for the boxes */
+.boxTitle
+{
+    text-align: center;
+    font-size: 35px;
+}
+.boxText
+{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+}
+.hide
+{
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*Error Page styling*/
+.error
+{
+    background-image: url("../img/apology.jpg");
+}
+.error h1
+{
+    /* margin-top: 420px; */
+    /* margin-left: 430px; */
+    /* text-align: left; */
+    color: red;
+    font-size: 40px;
+    font-weight: 600px;
+}
+ .error h2
+{
+    margin-top: 100px;
+    margin-left: 100px;
+    text-align: left; 
+    top: 610px;
+    left: 450px; 
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+} 
+.error h3
+{
+    position: absolute;
+    top: 650px;
+    left: 450px;
+    font-size: 10px;
+    color: grey; 
+    font-weight: 600; 
+}

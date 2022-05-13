@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+<!-- link Stylesheet for forms -->
+{% block head %}<link href="../static/css/forms.css" rel="stylesheet">{% endblock %}
+{% block title %}Sign Up{% endblock %}
+
+{% block class %}
+    <div class="background signUpBackground">
+{% endblock %} 
+    
+{% block main %}
+        <form action="/signup" method="post"> 
+
+            <!--Username interactive form -- same as login format-->
+                <div class="signUpForm username">
+                    <div class="form">
+                        <input  id="username" type="text" name="username" autocomplete="off" required >
+                            <label for="name" class="label-name">
+                                <span class="content-name">Username</span>
+                        </label> 
+                    </div>  
+                </div>
+                
+                <!--Password interactive form -- same as login-->
+                <div class="signUpForm password">
+                    <div class="form">   
+                        <!-- on key up to check the strength of password -->
+                        <input id="password" onkeyup="trigger()" type="password" name="password" autocomplete="off" required >
+                            <label for="name" class="label-name">
+                                <span class="content-name">Password</span>
+                        </label> 
+                    
+                    </div>    
+                    
+                    <!-- Password strength checker -->
+                    <div class="indicator">
+                        <span class="weak"></span>
+                        <span class="medium"></span>
+                        <span class="strong"></span>
+                    </div>  
+
+                    <!-- Text saying the strength of the password -->
+                    <div class="text"></div>
+                                  
+                </div>
+                <!-- <i class="far fa-eye" onclick="showPass()" id="togglePassword1"></i>   -->
+                        
+                <!--Confirm password interactice form-->
+                <div class="signUpForm confirmPassword">
+                    <div class="form">
+                        <input id="confirmPassword" type="password" name="confirmPassword" autocomplete="off" required >
+                            <label for="name" class="label-name">
+                                <span class="content-name">Confirm Password</span>
+                        </label> 
+                    </div>  
+                </div>    
+                <!-- <i class="far fa-eye togglePassword" onclick="showPass()" id="togglePassword2"></i>              -->
+                
+
+                <!-- Languages offered -->
+                <div class="signUpForm language">
+                    <div class="form">
+                        <select id="language" type="text" name="language" autocomplete="off" placeholder="language" required >
+                            <label for="name" class="label-name">
+                                <option value=""><span class="content-name">Language</span></option>
+                                <option value="French"> <span class="content-name">French</span></option>
+                                <option value="Mandarin"> <span class="content-name">Mandarin</span></option>
+                                <option value="Spanish"> <span class="content-name">Spanish</span></option>
+                                <option value="Japanese"> <span class="content-name">Japanese</span></option>
+                                <option value="Yoruba"> <span class="content-name">Yoruba</span></option>
+                                <option value="Igbo"> <span class="content-name">Igbo</span></option>
+                                <option value="Hausa"> <span class="content-name">Hausa</span></option>
+                            </label> 
+                        </select>
+                    </div>  
+                </div>  
+
+            
+            <!--submit button-->
+            <!--valid password ensures we have a strong password and confirms the password fields are the same -->
+            <button id="signupSubmit" onclick="return validPassword();" class="signUpForm registerPosition btn">Sign Up</button>
+
+        </form>
+
+    </div>
+    <!-- Script for checking the strength of password. -->
+    <script src="../static/js/strengthChecker.js"></script>
+ 
+{% endblock %}

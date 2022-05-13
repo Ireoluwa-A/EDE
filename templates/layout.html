@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"> -->
+        <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Font links -->
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet">
+
+        <!-- Other aesthetic js scripts like font/alerts -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!--Insert favicon logo "logo2" with different color scheme to show in white bar-->
+        <link rel="shortcut icon" type="image/png" href="../static/img/logo2.png"> 
+
+        <!-- Links to stylesheet -->
+        <link href="../static/css/styles.css" rel="stylesheet">  
+        <link href="../static/css/load.css" rel="stylesheet">        
+
+        <!-- Links to js -->
+        <script src="../static/js/jquery-1.9.1.min.js"></script>
+        <script src="../static/js/load.js"></script>
+
+        <!--For linking page specific stylesheets/scripts-->
+        {% block head %}{% endblock %}       
+
+        <!-- Block for title of page -->
+        <title>EDE {% block title %}{% endblock %}</title>
+
+    </head>
+    
+    <body>      
+    <!--For the background image which is a div class and different for each page-->
+        {% block class %}{% endblock%}
+
+        <!-- navbar space(if we dont want the navbar on a certain page for example) -->
+        {% block navbar %}
+            <nav class="navbar">       
+
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <span class="line top"></span>
+                    <span class="line middle"></span>
+                    <span class="line bottom"></span>
+                    <!-- <i class="fas fa-bars"></i> -->
+                </label>
+                <!-- Makes logo grow on hover -->
+                    <a href = "/"> <img class="logo" src="../static/img/logo.png"> </a>
+
+                <!--Displays certain things when the user is logged in-->
+                {% if session.user_id %}
+                    <ul>
+                        <li><a href="/table">Table</a></li>                     
+                        <li><a href="/connectwithothers">Connect With Others</a></li>
+                        <li><a href="/editpreferences">Edit preferences</a></li>                     
+                        <li><a href="/logout">Logout</a></li>
+                    </ul>       
+                {% else %}
+                    <ul>
+                        <li><a href="/signup">Sign Up</a></li> 
+                        <li><a href="/login">Login</a></li>
+                    </ul>
+                {% endif %}
+            </nav>    
+        {% endblock %}    
+
+
+        {% block main %}
+    <!--Main blocks of html-->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </DCVGSXDEAQ>
+        {% endblock %}
+    
+        <!--Will run this general loading animation when we dont need a sepcific longer one(such as when generating table or giving tips)-->
+        {% block animation %}
+            <div class="loader-wrapper">
+                <span class="loader"><span class="loader-inner"></span></span>
+            </div>
+        {% endblock %}
+    </body>
+
+
+    <script>
+        // Closes the check button when they click on it(in mobile view) to see menu
+        $("#check").click(function (){
+            $(".checkbtn").toggleClass("close");
+        });  
+    </script>
+
+    <footer class="footer">
+        <a>Made by Ireoluwa Alarape. Contact me at: #############</a>
+    </footer>    

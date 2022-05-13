@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../static/css/test.css" rel="stylesheet"> 
+    </head>
+    <body>
+        
+    </body>
+</html>
+
+
+ <!--For the background image which is a div class and different for each page-->
+ {% block class %}{% endblock%}
+ <nav class="nav">
+     
+     <input type="checkbox" onclick="show_hide()" id="check">
+     <label for="check" class="checkbtn">
+         <i class="fas fa-bars"></i>
+     </label>
+
+     <a href = "/"> <img class="logo" src="../static/img/logo.png"> </a>
+<!--Displays certain things when the user is logged in-->
+{% if session.user_id %}
+      <ul>
+         <li><a href="/table">Table</a></li>                     
+         <li><a href="/connectwithothers">Connect With Others</a></li>
+         <li><a href="/editpreferences">Edit preferences</a></li> 
+         <li><a href="/bts">Info</a></li>                    
+         <li><a href="/logout">Logout</a></li>
+     </ul>       
+{% else %}
+     <ul>
+         <li><a href="/signup">Sign Up</a></li> 
+         <li><a href="/login">Login</a></li>
+         <li><a href="/bts">About</a></li>
+     </ul>
+{% endif %}
+ </nav>

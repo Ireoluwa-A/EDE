@@ -1,0 +1,253 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+
+/* SIGN UP AND LOGIN FORM STYLING */
+.signUpForm
+{
+    height: 80px;
+    width: 75%; 
+    font-family: sans-serif;  
+    align-items: center;  
+}
+.loginForm
+{
+    height: 80px;
+    width: 75%; 
+    padding-top: 90px;
+    font-family: sans-serif;  
+    align-items: center;  
+}
+.username
+{
+    margin: 0 auto;
+}
+.password
+{
+    margin: 40px auto;
+}
+.confirmPassword
+{
+    margin: 0 auto;
+}
+.language
+{
+    height: 100px;
+    width: 30%;
+    margin: 10px auto;
+    outline: #FFAC06;
+}
+/* Button positions */
+.registerPosition
+{
+    width: 100px;
+    height: auto;
+    background-color: black;
+    color: #FFAC06;
+    margin: 30px auto;
+}
+.loginPosition
+{
+    background-color: black;
+    color: #FFAC06;
+    display: inline-block;
+    margin-top: 50px;
+
+}
+/*For the select property of language field*/
+.form select
+{
+    /*Has extra space at the bottom.*/
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding-top: 20px;
+    border-color: #FFAC06;
+    border-width: 3px;
+    background-color: #353535;
+}
+
+
+
+
+
+     
+
+
+/* STYLING TO ANIMATE FORM */
+.form
+{
+    width: 40%;
+    position: relative;
+    top: 50%;
+    left: 30%;
+    height: 50px;
+    overflow: hidden;
+}
+.form input
+{
+    /*Has extra space at the bottom.*/
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+    background-color: #353535;
+}
+.form label
+{
+    /*Label itself with black bar at bottom*/
+    position: absolute;
+    bottom: -2px;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    /*background-color: #353535; */
+    background-color: transparent;
+    pointer-events: none;
+    border-bottom: 2px solid black;
+}
+.form label::after     /*Animation of gold bar*/
+{
+    content: "";
+    color: black;
+    position: absolute;
+    left: 0px;
+    bottom: -2px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 2px solid #FFAC06;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+.content-name
+{
+    position: absolute;
+    left: 0px;
+    top: 15px;
+    /*bottom: 50px;*/
+    /*left: 100px;*/
+    color: white;
+    transition: all 0.3s ease;
+}
+/*Moves the label("username") when you click on the field*/
+.form input:focus + .label-name .content-name, .form input:valid + .label-name .content-name
+{
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #FFAC06;
+}
+.form input:focus + .label-name::after, .form input:valid + .label-name::after
+{
+    transform: translateX(0%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* STYLING FOR PASSWORD STRENGTH CHECKER */
+.hideColor
+{
+    background-color: lightgrey !important;
+}
+.indicator
+{
+    margin: 40px auto;
+    padding: 5px;
+    height: 5px;
+    width: 40%;
+    /* width: 350px; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+    /* background-color: red; */
+}
+.indicator span
+{
+    /* width: 100%;
+    height: 100%; */
+    height: 6px;
+    width: 80%;
+    background: lightgrey;
+    border-radius: 5px;
+}
+.indicator span.medium
+{
+    margin: 0 3px;
+}
+
+.indicator span.active:before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+.indicator span.weak{
+background-color: #ff4757;
+}
+.indicator span.medium{
+background-color: orange;
+}
+.indicator span.strong{
+background-color: #23ad5c;
+}
+
+.text{
+    font-size: 15px;
+    font-weight: 300;
+    margin: -35px auto;
+    display: none;
+}
+.text.weak{
+color: #ff4757;
+}
+.text.medium{
+color: orange;
+}
+.text.strong{
+color: #23ad5c;
+}
+
+#togglePassword1
+{
+    position: relative;
+    height: 13px;
+    width: 13px;
+    display: block;
+    margin-left: 60%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#togglePassword2
+{
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    display: block;
+    margin-left: 65%;
+    cursor: pointer;
+    z-index: 1;
+}
+
