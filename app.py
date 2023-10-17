@@ -5,11 +5,28 @@ from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
 import random
+import MySQLdb
 from helpers import apology, login_required, makeDict
-import pyodbc 
+import pyodbc
+import mysql.connector 
 
-# Configure application
+import urllib.parse 
+from flask_sqlalchemy import SQLAlchemy
+
+
+
+# Configure Database URI: 
+params = urllib.parse.quote_plus("DRIVER={SQL Server};SERVER=localhost;DATABASE=EDE;UID=sa;PWD=Strong.Pwd-123")
+
+
+# initialization
 app = Flask(__name__)
+# app.config['SECRET_KEY'] = 'supersecret'
+# app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
+# app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+
+# # extensions
+# db = SQLAlchemy(app)
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_FILE_DIR"] = mkdtemp()
@@ -17,15 +34,21 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-conn = pyodbc.connect('Driver={SQL Server Native Client 11.0};'
-                    'Server=(LocalDB)\MSSQLLocalDB;'
-                    #   'Server=DESKTOP-55O8CAH\LOCALDB#43D00389;'
-                      'Database=EDE;'
-                      'Trusted_Connection=yes;')
+# conn_str = pyodbc.connect('Driver={SQL Server Native Client 11.0};'
+#                     'Server=localhost;'
+#                     #'Server=DESKTOP-55O8CAH\LOCALDB#43D00389;'
+#                       'Database=EDE;'
+#                       'UID=sa;'
+#                       'PWD=Strong.Pwd-123;')
+# conn = pyodbc.connect(conn_str)                  
 
+# conn = mysql.connector.connect(host='localhost',
+#                         user='root',
+#                         password='Strong.Pwd-123', 
+#                         db='EDE')
 
+# conn = MySQLdb.Connect(host="0.0.0.0", port=1433,user="sa", passwd="Strong.Pwd-123", db="EDE")
 
-# Old configuration to sql server
 # app.config['MYSQL_USER'] = 'sql9360415'
 # app.config['MYSQL_PASSWORD'] = '8W1QzCE6qN'
 # app.config['MYSQL_HOST'] = 'sql9.freemysqlhosting.net'
@@ -49,7 +72,6 @@ def after_request(response):
 
 
 
-
 @app.route("/")
 def index():
     # Query for creating table and inserting into it
@@ -69,16 +91,17 @@ def index():
     # print(test)
     # mysql.connection.commit()
 
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM users")
 
+    # db.execute("SELECT * FROM users")
+    # print(db.execute("SELECT * FROM users"))
+    print("EXECUTED")
     # Turn our results into a dict so we can index into it nicely
     # results = makeDict(cursor)
 
     # results = makeDict(cursor, "id name hash language")
     # results = cursor.fetchall()
     # print(results)
-    cursor.close()
+    # cursor.close()
     # print(cursor)
     return render_template("index.html")
 
